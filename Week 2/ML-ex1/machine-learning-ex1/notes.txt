@@ -1,0 +1,5 @@
+% extra commands that is needed for local testing
+
+addpath('E:\Coursera ML\Week 2\ML-ex1\machine-learning-ex1\ex1')
+
+cd 'E:\Coursera ML\Week 2\ML-ex1\machine-learning-ex1\ex1'

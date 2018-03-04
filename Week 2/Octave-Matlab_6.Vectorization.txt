@@ -1,0 +1,25 @@
+% vectorization
+
+% best practice to do matrix operations is to use ready-made, highly optimized libraries, built in to most programming languages
+
+% COST FUNCTION CALCULATIONS
+
+% unvectorized implementation of h_theta(x) calculation
+prediction = 0.0;
+for j=1:n+1,
+	prediction = prediction + theta(j) * x(j)
+end;
+
+% vectorized implementation of h_theta(x) calculation
+prediction = theta' * x; %theta transposed multiple x
+
+% the same idea applies to c++ (note theta' is theta.transpose() in c++)
+
+
+% GRADIENT DESCENT CALCULATIONS
+
+% vector implementation
+% theta := theta - alpha*delta
+% where theta = 1/m * sum(h_theta(xi) - yi)*xi
+% see image 1
+

@@ -1,0 +1,95 @@
+% Control Statements: For, while, if statements, and functions
+
+v = zeros (10,1)
+for i =1:10,
+	v(1) = 2^i
+end;
+
+indices = 1:10
+
+for i=indices,
+	disp(i)
+end;
+
+% while loop
+i = 1;
+while i<=5,
+	v(i) = 100;
+	i = i+1;
+end;
+
+% break statement
+i=1;
+while true,
+	v(i) = 999;
+	i= i+1;
+	if i ==6,
+		break; % break statement can break out of current loop
+	end;
+end;
+
+%if-elseif-else
+if v(1)==10,
+	disp('the value is one');
+elseif v(1)==2,
+	disp('the value is two')
+elseif
+	disp('the value is neither')
+end;
+
+%function definitions - may save this as "squareThisNumber.m" under search path
+function y = squareThisNumber (x) % function y with argument x
+
+y = x^2;
+
+%end function file
+
+%load function file
+pwd
+
+cd 'xxx'
+
+% Octave search path (advanced/optional)
+addpath('C:\User...') % add this directory to search path
+
+%function definitions - may save this as "squareThisNumber.m" under search path
+function [y1,y2] = squareThisNumber (x) % function returns [y1,y2] with argument x
+
+y1 = x^2;
+y2 = x^3;
+
+%end function file
+[a,b] = squareAndCubeThisNumber (5) % this function is like squareThisNumber but returns two numbers
+
+%cost function example
+%cost function definition
+function J = costFunctionJ(X, y, theta)
+
+% X is the "design matrix" containing our training examples,
+% y is the class labels
+% theta is the parameter estimates to be tested
+
+m = size(X,1);
+predictions = X*theta
+
+sqrErrors = (predictions-y).^2; %squared errors
+
+J = 1/(2*m) * sum(sqrErrors);
+
+%end of cost function
+
+X = [1 1; 1 2; 1 3] % design matrix
+y = [1;2;3]
+
+theta = [0;1];
+j = costFunctionJ(X,y, theta)
+% returns j=0
+
+theta = [0;0]
+j = costFunctionJ(X,y, theta)
+% returns j = 2.333 = (1^2 + 2^2 + 3^2)/2*m, where m = 3
+
+
+
+
+
